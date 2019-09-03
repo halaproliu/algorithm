@@ -19,6 +19,7 @@ function quickSort(arr) {
 
 // 冒泡排序
 function bubbleSort(arr) {
+  console.time('冒泡排序')
   for (var i = 0; i < arr.length - 1; i++) {
     for (var j = 0; j < arr.length - 1 - i; j++) {
       if (arr[j] > arr[j + 1]) {
@@ -28,6 +29,36 @@ function bubbleSort(arr) {
       }
     }
   }
+  console.timeEnd('冒泡排序')
+  return arr
+}
+
+function bubbleSortEnhancement(arr) {
+  console.time('冒泡排序增强版')
+  let low = 0
+  let high = arr.length - 1
+  let i
+  let temp
+  while (low < high) {
+    for (i = low; i < high; i++) {
+      if (arr[i] > arr[i + 1]) {
+        temp = arr[i]
+        arr[i] = arr[i + 1]
+        arr[i + 1] = temp
+      }
+    }
+    high--
+
+    for (i = high; i > low; i--) {
+      if (arr[i] < arr[i - 1]) {
+        temp = arr[i]
+        arr[i] = arr[i - 1]
+        arr[i - 1] = temp
+      }
+    }
+    low++
+  }
+  console.timeEnd('冒泡排序增强版')
   return arr
 }
 
